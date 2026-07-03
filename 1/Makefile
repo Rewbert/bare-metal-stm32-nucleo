@@ -19,7 +19,7 @@ SIZE  := $(CROSS)size
 # Cortex-M33 core, no operating system and no standard library.
 CFLAGS   := -mcpu=cortex-m33 -mthumb -ffreestanding -nostdlib -Wall -Wextra -O0 -g
 LDFLAGS  := -T linker.ld
-CPPFLAGS := -Ivendor/CMSIS/Device/ST/STM32L5/Include -Ivendor/CMSIS/CMSIS/Core/Include
+CPPFLAGS := -I../vendor/CMSIS/Device/ST/STM32L5/Include -I../vendor/CMSIS/CMSIS/Core/Include
 
 # --- OpenOCD (ST's fork, built but not installed) ---
 OPENOCD_DIR     ?= $(HOME)/Database/Projects/OpenOCD
