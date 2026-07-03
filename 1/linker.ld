@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-ENTRY(reset_handler)
-
 MEMORY
 {
     ISR       (rw):  ORIGIN = 0x08000000, LENGTH = 2K
