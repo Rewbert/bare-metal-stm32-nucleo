@@ -44,7 +44,7 @@ all: $(TARGET).elf
 # -lgcc pulls in the compiler support library: -nostdlib drops it too, but we
 # still need it for the 64-bit division the baud rate calculation performs.
 $(TARGET).elf: $(OBJS) linker.ld
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -lgcc -o $@
 	$(SIZE) $@
 
 # Flash the ELF onto the board

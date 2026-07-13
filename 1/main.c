@@ -71,7 +71,7 @@ void configure_lpuart1(uint32_t clk_hz, uint32_t baud_rate) {
     RCC->CCIPR1 &= ~RCC_CCIPR1_LPUART1SEL;
     RCC->CCIPR1 |= RCC_CCIPR1_LPUART1SEL_0;
 
-    LPUART1->BRR = (256U * clk_hz) / baud_rate;
+    LPUART1->BRR = (uint32_t)((256ULL * clk_hz) / baud_rate);
     LPUART1->CR1 |= (USART_CR1_UE | USART_CR1_TE | USART_CR1_RE);
 }
 
