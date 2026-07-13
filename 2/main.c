@@ -105,9 +105,6 @@ void configure_lpuart1(uint32_t clk_hz, uint32_t baud_rate) {
     RCC->CCIPR1 &= ~RCC_CCIPR1_LPUART1SEL;
     RCC->CCIPR1 |= RCC_CCIPR1_LPUART1SEL_0;
 
-    /* Deviates from the blog post here: 256U * clk_hz overflows uint32_t once
-     * clk_hz reaches 110 MHz, silently producing the wrong BRR value. Widen
-     * the multiplication to 64 bits to avoid that. */
     LPUART1->BRR = (uint32_t)((256ULL * clk_hz) / baud_rate);
     LPUART1->CR1 |= (USART_CR1_UE | USART_CR1_TE | USART_CR1_RE);
 }
